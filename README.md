@@ -1,5 +1,6 @@
 # Automata Visualizer
 
+This is developed by : Richmond C. Constante
 ## Overview
 This web application provides visualization for Deterministic Finite Automata (DFA), Context-Free Grammars (CFG), and Pushdown Automata (PDA). It is built using Vite, React, and Tailwind CSS, with Graphviz for rendering automata diagrams.
 
@@ -24,3 +25,12 @@ This web application provides visualization for Deterministic Finite Automata (D
 3. Start the development server:
    ```sh
    npm run dev
+## Usage
+-Navigate to the web interface.
+-Select DFA, CFG, or PDA mode.
+-Input your automaton or grammar definitions.
+-View the visualized output.
+## Contributing
+Feel free to submit issues and pull requests to improve the project!
+## License
+This project is open-source under the MIT License.
