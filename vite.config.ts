@@ -7,6 +7,9 @@ export default defineConfig({
   esbuild: {
     target: 'esnext', // Ensures support for top-level await
   },
+  build: {
+    target: 'esnext', // Ensures final build output supports it
+  },
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
