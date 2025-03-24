@@ -11,6 +11,22 @@ interface Update {
 
 const UPDATES: Update[] = [
   {
+    version: "1.1.5",
+    time: "4:43 PM",
+    date: "3/24/2025",
+    changes: [
+      "Change the content of about",
+      "More Content",
+      "Added PDA section",
+      "Updated learning resources"
+    ],
+    futureUpdates: [
+      "Fix Bugs",
+      "More Content",
+      "Enhanced visualizations"
+    ]
+  },
+  {
     version: "1.1.2",
     time: "11:14 AM",
     date: "3/24/2025",

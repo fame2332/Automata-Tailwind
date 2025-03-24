@@ -3,9 +3,7 @@ import { graphviz } from 'd3-graphviz';
 import { Graphviz } from '@hpcc-js/wasm';
 
 // Initialize WASM
-Graphviz.load().then(() => {
-  Graphviz.useWASM(true);
-});
+await Graphviz.load();
 
 interface GraphvizViewerProps {
   dot: string;

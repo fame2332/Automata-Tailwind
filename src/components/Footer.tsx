@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Mail, Linkedin, Heart, Clock, Phone, MapPin, Send } from 'lucide-react';
+import { Github, Mail, Linkedin, Heart, Clock, Phone, MapPin, Send, Book, Code, GraduationCap } from 'lucide-react';
 
 const SOCIAL_LINKS = [
   { icon: Github, href: 'https://github.com/automata-visualizer', label: 'GitHub' },
@@ -11,6 +11,14 @@ const SOCIAL_LINKS = [
 const BUSINESS_HOURS = [
   { days: 'Monday - Friday', hours: 'Closed' },
   { days: 'Saturday - Sunday', hours: '12:00 PM - 4:00 PM' },
+];
+
+const RESOURCES = [
+  { title: 'Automata Theory Basics', link: 'https://en.wikipedia.org/wiki/Automata_theory' },
+  { title: 'Regular Languages', link: 'https://en.wikipedia.org/wiki/Regular_language' },
+  { title: 'Context-Free Grammar', link: 'https://en.wikipedia.org/wiki/Context-free_grammar' },
+  { title: 'Deterministic Finite Automata', link: 'https://en.wikipedia.org/wiki/Deterministic_finite_automaton' },
+  { title: 'Pushdown Automata', link: 'https://en.wikipedia.org/wiki/Pushdown_automaton' }
 ];
 
 export default function Footer() {
@@ -32,8 +40,8 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-indigo-400">Latest Updates</h3>
             <div className="space-y-3">
               <Link to="/updates" className="block">
-                <p className="text-white font-medium">Version 1.1.2 Released</p>
-                <p className="text-sm text-gray-400">New UI improvements and bug fixes</p>
+                <p className="text-white font-medium">Version 1.1.5 Released</p>
+                <p className="text-sm text-gray-400">Change the content of about, More Content</p>
               </Link>
               <Link to="/updates" className="text-indigo-400 text-sm hover:text-indigo-300">
                 View all updates →
@@ -41,39 +49,26 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Learning Resources */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-indigo-400">Quick Links</h3>
-            <div className="grid grid-cols-2 gap-4">
-              <ul className="space-y-2">
-                <li>
-                  <Link to="/services" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/contact" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-              <ul className="space-y-2">
-                <li>
-                  <Link to="/about" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/updates" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    Updates
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/team" className="text-gray-300 hover:text-white transition-colors duration-200">
-                    Team
-                  </Link>
-                </li>
-              </ul>
+            <h3 className="text-lg font-semibold text-indigo-400">Learning Resources</h3>
+            <div className="space-y-3">
+              {RESOURCES.map((resource, index) => (
+                <a
+                  key={index}
+                  href={resource.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-200"
+                >
+                  {index === 0 ? <Book size={16} /> : 
+                   index === 1 ? <Code size={16} /> : 
+                   index === 2 ? <GraduationCap size={16} /> :
+                   index === 3 ? <Code size={16} /> :
+                   <GraduationCap size={16} />}
+                  <span>{resource.title}</span>
+                </a>
+              ))}
             </div>
           </div>
 

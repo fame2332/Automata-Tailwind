@@ -28,7 +28,7 @@ export default function Header() {
                 location.pathname === '/about' ? 'text-indigo-600 font-semibold' : ''
               }`}
             >
-              About
+              Modules
             </Link>
             <Link
               to="/team"
