@@ -1,0 +1,4 @@
+To Run THIS:
+npm install vite
+npx vite build
+npm run dev
