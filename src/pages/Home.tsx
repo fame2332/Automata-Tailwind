@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { CircleDot, ArrowRight, X, Play } from 'lucide-react';
+import { CircleDot, ArrowRight, X, Play, MousePointer } from 'lucide-react';
 import { GraphvizViewer } from '../components/GraphvizViewer';
 import { 
   DFA_1, DFA_2, CFG_1, CFG_2, PDA_1, PDA_2,
@@ -73,18 +73,7 @@ export default function Home() {
       return;
     }
 
-    let result;
-    switch (activeVisualization) {
-      case 'DFA':
-        result = validateString(currentAutomaton, input);
-        break;
-      case 'PDA':
-        result = validatePDA(currentAutomaton, input);
-        break;
-      default:
-        return;
-    }
-
+    const result = validateString(currentAutomaton, input);
     newEntries[index] = {
       ...newEntries[index],
       isValid: result.isValid,
@@ -119,6 +108,40 @@ export default function Home() {
       { input: '', isValid: null, stateChecks: null },
       { input: '', isValid: null, stateChecks: null },
     ]);
+  };
+
+  const renderEmptyState = () => {
+    if (activeVisualization) return null;
+
+    return (
+      <div className="bg-white rounded-xl shadow-lg p-12 text-center">
+        <div className="max-w-2xl mx-auto space-y-6">
+          <div className="flex justify-center">
+            <MousePointer className="h-16 w-16 text-indigo-500 animate-bounce" />
+          </div>
+          <h2 className="text-2xl font-semibold text-gray-800">
+            Select a Visualization Type to Begin
+          </h2>
+          <p className="text-gray-600">
+            Click on one of the visualization icons above to explore:
+          </p>
+          <div className="grid grid-cols-3 gap-6 max-w-lg mx-auto">
+            <div className="p-4 bg-gray-50 rounded-lg text-center">
+              <CircleDot className="h-8 w-8 mx-auto mb-2 text-blue-500" />
+              <p className="text-sm font-medium text-gray-700">DFA</p>
+            </div>
+            <div className="p-4 bg-gray-50 rounded-lg text-center">
+              <ArrowRight className="h-8 w-8 mx-auto mb-2 text-green-500" />
+              <p className="text-sm font-medium text-gray-700">CFG</p>
+            </div>
+            <div className="p-4 bg-gray-50 rounded-lg text-center">
+              <X className="h-8 w-8 mx-auto mb-2 text-red-500" />
+              <p className="text-sm font-medium text-gray-700">PDA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   const renderVisualization = () => {
@@ -169,36 +192,48 @@ export default function Home() {
                   className={`col-span-4 p-2 rounded break-all font-mono text-sm cursor-pointer ${
                     selectedRegex === idx ? 'bg-blue-50 border border-blue-200' : 'bg-gray-50 hover:bg-gray-100'
                   }`}
-                  onClick={() => setSelectedRegex(idx)}
+                  onClick={() => {
+                    setSelectedRegex(idx);
+                    setActiveVisualization(null);
+                  }}
                 >
                   {regex}
                 </div>
                 <button
                   onClick={() => handleVisualizationChange(activeVisualization === 'DFA' ? null : 'DFA')}
+                  disabled={selectedRegex !== idx}
                   className={`flex justify-center items-center transition-colors ${
-                    activeVisualization === 'DFA' && selectedRegex === idx 
-                      ? 'text-blue-600' 
-                      : 'text-gray-400 hover:text-blue-500'
+                    selectedRegex !== idx 
+                      ? 'text-gray-300 cursor-not-allowed'
+                      : activeVisualization === 'DFA'
+                        ? 'text-blue-600' 
+                        : 'text-gray-400 hover:text-blue-500'
                   }`}
                 >
                   <CircleDot size={20} />
                 </button>
                 <button
                   onClick={() => handleVisualizationChange(activeVisualization === 'CFG' ? null : 'CFG')}
+                  disabled={selectedRegex !== idx}
                   className={`flex justify-center items-center transition-colors ${
-                    activeVisualization === 'CFG' && selectedRegex === idx
-                      ? 'text-green-600'
-                      : 'text-gray-400 hover:text-green-500'
+                    selectedRegex !== idx 
+                      ? 'text-gray-300 cursor-not-allowed'
+                      : activeVisualization === 'CFG'
+                        ? 'text-green-600'
+                        : 'text-gray-400 hover:text-green-500'
                   }`}
                 >
                   <ArrowRight size={20} />
                 </button>
                 <button
                   onClick={() => handleVisualizationChange(activeVisualization === 'PDA' ? null : 'PDA')}
+                  disabled={selectedRegex !== idx}
                   className={`flex justify-center items-center transition-colors ${
-                    activeVisualization === 'PDA' && selectedRegex === idx
-                      ? 'text-red-600'
-                      : 'text-gray-400 hover:text-red-500'
+                    selectedRegex !== idx 
+                      ? 'text-gray-300 cursor-not-allowed'
+                      : activeVisualization === 'PDA'
+                        ? 'text-red-600'
+                        : 'text-gray-400 hover:text-red-500'
                   }`}
                 >
                   <X size={20} />
@@ -208,12 +243,13 @@ export default function Home() {
           </div>
         </div>
 
+        {renderEmptyState()}
         {renderVisualization()}
 
-        {activeVisualization && activeVisualization !== 'CFG' && (
+        {activeVisualization === 'DFA' && (
           <div className="bg-white rounded-xl shadow-lg p-8">
             <h2 className="text-xl font-semibold text-gray-700 mb-6">
-              Validate Strings Against {activeVisualization}
+              Validate Strings Against DFA
             </h2>
             <p className="text-sm text-gray-600 mb-4">
               {selectedRegex === 0 
