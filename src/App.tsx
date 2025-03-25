@@ -7,6 +7,8 @@ import About from './pages/About';
 import Team from './pages/Team';
 import Contact from './pages/Contact';
 import Updates from './pages/Updates';
+import Articles from './pages/Articles';
+import Article from './pages/Article';
 
 export default function App() {
   return (
@@ -19,6 +21,8 @@ export default function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/updates" element={<Updates />} />
+          <Route path="/articles" element={<Articles />} />
+          <Route path="/article/:id" element={<Article />} />
         </Routes>
         <Footer />
       </div>

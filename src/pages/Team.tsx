@@ -5,25 +5,25 @@ const TEAM_MEMBERS = [
   {
     name: 'Richmond Constante',
     role: 'Team Lead & Fullstack Dev',
-    image: 'https://i.ibb.co/fWC8GYX/Rich.png',
+    image: '/src/image/Rich.png',
     github: 'https://github.com/fame2332'
   },
   {
     name: 'Aaron Lazaro',
     role: 'DFA Designer',
-    image: 'https://i.ibb.co/DHhRbPXK/AaronL.jpg',
+    image: '/src/image/AaronL.jpg',
     github: 'https://github.com/'
   },
   {
-    name: 'Helvin Tanada',
+    name: 'Helvin Tañada',
     role: 'DFA Designer',
-    image: 'https://i.ibb.co/QFxtJRzw/Jepoy.png',
+    image: '/src/image/Jepoy.png',
     github: 'https://github.com/'
   },
   {
-    name: 'Kaizz Laga',
+    name: ' Kaizz Laga',
     role: 'Sponsor',
-    image: 'https://i.ibb.co/zV3xKW62/Kaizz.png',
+    image: '/src/image/Kaizz.png',
     github: 'https://github.com/'
   }
 ];
@@ -82,9 +82,11 @@ export default function Team() {
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">About BCS33</h2>
           <p className="text-gray-600 max-w-3xl mx-auto">
-            BCS33 is a dynamic section of Computer Science students at De La Salle University - Dasmariñas. 
-            We specialize in theoretical computer science, particularly in the study of automata theory and formal languages. 
-            Our team combines technical expertise with creative problem-solving to develop innovative solutions.
+            BCS33 is a dynamic group of Computer Science students at De La Salle University -
+            Dasmariñas, specializing in intelligent systems, particularly Artificial
+            Intelligence and its related fields. Our team combines technical expertise
+            with creative problem-solving to develop innovative AI-driven solutions that push
+            the boundaries of technology.
           </p>
         </div>
       </div>

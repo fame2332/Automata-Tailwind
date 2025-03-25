@@ -31,6 +31,6 @@ This web application provides visualization for Deterministic Finite Automata (D
 -Input your automaton or grammar definitions.
 -View the visualized output.
 ## Contributing
-Feel free to submit issues and pull requests to improve the project!
+Feel free to submit issues to improve the project!
 ## License
 This project is open-source under the MIT License.

@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import { CircleDot, ArrowRight, X, Play, MousePointer } from 'lucide-react';
 import { GraphvizViewer } from '../components/GraphvizViewer';
+import Testimonials from '../components/Testimonials';
+import FAQ from '../components/FAQ';
 import { 
   DFA_1, DFA_2, CFG_1, CFG_2, PDA_1, PDA_2,
   generateDotGraph, validateString, validatePDA, validateCFG,
@@ -298,6 +300,9 @@ export default function Home() {
             </div>
           </div>
         )}
+
+        <Testimonials />
+        <FAQ />
       </div>
     </main>
   );

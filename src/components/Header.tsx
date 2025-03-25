@@ -31,6 +31,14 @@ export default function Header() {
               Modules
             </Link>
             <Link
+              to="/articles"
+              className={`text-gray-600 hover:text-gray-900 transition-colors ${
+                location.pathname === '/articles' ? 'text-indigo-600 font-semibold' : ''
+              }`}
+            >
+              Articles
+            </Link>
+            <Link
               to="/team"
               className={`text-gray-600 hover:text-gray-900 transition-colors ${
                 location.pathname === '/team' ? 'text-indigo-600 font-semibold' : ''

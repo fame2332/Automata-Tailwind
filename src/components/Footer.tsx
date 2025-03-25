@@ -14,11 +14,11 @@ const BUSINESS_HOURS = [
 ];
 
 const RESOURCES = [
-  { title: 'Automata Theory Basics', link: 'https://en.wikipedia.org/wiki/Automata_theory' },
-  { title: 'Regular Languages', link: 'https://en.wikipedia.org/wiki/Regular_language' },
-  { title: 'Context-Free Grammar', link: 'https://en.wikipedia.org/wiki/Context-free_grammar' },
-  { title: 'Deterministic Finite Automata', link: 'https://en.wikipedia.org/wiki/Deterministic_finite_automaton' },
-  { title: 'Pushdown Automata', link: 'https://en.wikipedia.org/wiki/Pushdown_automaton' }
+  { title: 'Automata Theory Basics', link: 'https://cs.stanford.edu/people/eroberts/courses/soco/projects/2004-05/automata-theory/basics.html' },
+  { title: 'Regular Languages', link: 'https://www.cl.cam.ac.uk/teaching/1011/RLFA/LectureNotes.pdf' },
+  { title: 'Context-Free Grammar', link: 'https://web.stanford.edu/class/archive/cs/cs103/cs103.1164/lectures/18/Small18.pdf' },
+  { title: 'Deterministic Finite Automata', link: 'https://www.cs.umd.edu/users/gasarch/COURSES/452/S21/slides/dfatalk.pdf' },
+  { title: 'Pushdown Automata', link: 'https://web.stanford.edu/class/archive/cs/cs103/cs103.1132/lectures/17/Small17.pdf' }
 ];
 
 export default function Footer() {
@@ -40,8 +40,12 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-indigo-400">Latest Updates</h3>
             <div className="space-y-3">
               <Link to="/updates" className="block">
-                <p className="text-white font-medium">Version 1.1.5 Released</p>
-                <p className="text-sm text-gray-400">Change the content of about, More Content</p>
+                <p className="text-white font-medium">Version 1.2.9 Released</p>
+                <p className="text-sm text-gray-400">Add Article Section, More Content</p>
+                <p className="text-white font-medium">Version 1.1.8</p>
+                <p className="text-sm text-gray-400">Add some changes in Team, More Content</p>
+                <p className="text-white font-medium">Version 1.1.5</p>
+                <p className="text-sm text-gray-400">Change the content of about, Added PDA section</p>
               </Link>
               <Link to="/updates" className="text-indigo-400 text-sm hover:text-indigo-300">
                 View all updates →
@@ -117,11 +121,11 @@ export default function Footer() {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <Phone size={16} className="text-gray-400" />
-                  <span className="text-sm">+63 9150-3656-02</span>
+                  <span className="text-sm">+63-915-036-5602</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail size={16} className="text-gray-400" />
-                  <span className="text-sm">contact@automata-visualizer.com</span>
+                  <span className="text-sm">CRC2023@dlsud.edu.ph</span>
                 </div>
                 <div className="flex items-start space-x-3">
                   <MapPin size={16} className="text-gray-400 mt-1" />
