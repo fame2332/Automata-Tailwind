@@ -1,54 +1,53 @@
-# React + TypeScript + Vite
+# Automata Visualizator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+Automata Visualizator is a web application built with React, Vite, Graphviz, and Tailwind CSS. It allows users to input strings and validate them using different automata types, including:
+- Deterministic Finite Automaton (DFA)
+- Pushdown Automaton (PDA)
+- Context-Free Grammar (CFG)
 
-Currently, two official plugins are available:
+## Features
+- **String Validation**: Users can input a string and check if it is accepted by the selected automaton.
+- **Graph Visualization**: Automata structures are dynamically visualized using Graphviz.
+- **Interactive UI**: Built with Tailwind CSS for a responsive and modern design.
+- **Fast and Lightweight**: Uses Vite for optimized development and build performance.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/fame2332/Automata-Tailwind.git
+   ```
+2. Navigate to the project directory:
+   ```sh
+   cd Automata-Tailwind
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Start the development server:
+   ```sh
+   npm run dev
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Build
+To create a production build, run:
+```sh
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Technologies Used
+- **React** - Frontend library for UI components.
+- **Vite** - Fast build tool and development server.
+- **Graphviz** - Automata visualization.
+- **Tailwind CSS** - Utility-first CSS framework for styling.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## License
+This project is licensed under the MIT License.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## Contributing
+Pull requests are welcome! Feel free to contribute to improve the project.
+
+## Author
+Developed by [Richmond Constante](https://github.com/fame2332).
