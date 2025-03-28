@@ -13,7 +13,7 @@ const UPDATES: Update[] = [
             {
     version: "1.3.7",
     time: "12:13 PM",
-    date: "3/26/2025",
+    date: "3/28/2025",
     changes: [
       "Add Dark theme",
       "Add Built using",
