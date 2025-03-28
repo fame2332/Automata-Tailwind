@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CheckCircle2, Pin } from 'lucide-react';
 
 interface Update {
@@ -10,7 +10,21 @@ interface Update {
 }
 
 const UPDATES: Update[] = [
-    {
+            {
+    version: "1.3.1",
+    time: "8:01 PM",
+    date: "3/26/2025",
+    changes: [
+      "Revamped Validate Strings according to ma'am Wishes",
+      "Convert each container into free form",
+      "It can handle multiple string validation",
+      "Fix bugs"
+    ],
+    futureUpdates: [
+      "Any Regex DFA Simulation"
+    ]
+  },
+  {
     version: "1.2.9",
     time: "2:01 AM",
     date: "3/26/2025",
@@ -23,11 +37,9 @@ const UPDATES: Update[] = [
     ],
     futureUpdates: [
       "Any Regex DFA Simulation"
-
     ]
   },
-
-    {
+  {
     version: "1.1.8",
     time: "10:41 AM",
     date: "3/25/2025",
@@ -114,54 +126,62 @@ const UPDATES: Update[] = [
 ];
 
 export default function Updates() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">Updates & Changelog</h1>
-      
-      <div className="space-y-8">
-        {UPDATES.map((update, index) => (
-          <div key={index} className="bg-white rounded-lg shadow-md p-6">
-            <div className="flex justify-between items-start mb-4">
-              <div>
-                <h2 className="text-xl font-bold text-gray-900">Version {update.version}</h2>
-                <p className="text-sm text-gray-500">
-                  {update.time} | {update.date}
-                </p>
-              </div>
-              {index === 0 && (
-                <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
-                  Latest
-                </span>
-              )}
-            </div>
-
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Changes</h3>
-                <ul className="space-y-2">
-                  {update.changes.map((change, changeIndex) => (
-                    <li key={changeIndex} className="flex items-center space-x-2 text-gray-700">
-                      <CheckCircle2 size={16} className="text-green-500 flex-shrink-0" />
-                      <span>{change}</span>
-                    </li>
-                  ))}
-                </ul>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="max-w-4xl mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Updates & Changelog</h1>
+        
+        <div className="space-y-8">
+          {UPDATES.map((update, index) => (
+            <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 border border-gray-200 dark:border-gray-700">
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                    Version {update.version}
+                  </h2>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {update.time} | {update.date}
+                  </p>
+                </div>
+                {index === 0 && (
+                  <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
+                    Latest
+                  </span>
+                )}
               </div>
 
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">Future Updates</h3>
-                <ul className="space-y-2">
-                  {update.futureUpdates.map((future, futureIndex) => (
-                    <li key={futureIndex} className="flex items-center space-x-2 text-gray-700">
-                      <Pin size={16} className="text-blue-500 flex-shrink-0" />
-                      <span>{future}</span>
-                    </li>
-                  ))}
-                </ul>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Changes</h3>
+                  <ul className="space-y-3">
+                    {update.changes.map((change, changeIndex) => (
+                      <li key={changeIndex} className="flex items-center space-x-3 text-gray-700 dark:text-gray-300">
+                        <CheckCircle2 size={18} className="text-green-500 dark:text-green-400 flex-shrink-0" />
+                        <span>{change}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Future Updates</h3>
+                  <ul className="space-y-3">
+                    {update.futureUpdates.map((future, futureIndex) => (
+                      <li key={futureIndex} className="flex items-center space-x-3 text-gray-700 dark:text-gray-300">
+                        <Pin size={18} className="text-blue-500 dark:text-blue-400 flex-shrink-0" />
+                        <span>{future}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

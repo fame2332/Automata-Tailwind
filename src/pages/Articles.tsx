@@ -14,7 +14,7 @@ export const BLOG_POSTS = [
     tags: ["Automata", "Computer Science", "Theory"],
     author: "Richmond Constante",
     authorRole: "Computer Science Student",
-    authorImage: "/src/image/Rich.png",
+    authorImage: "https://i.ibb.co/fWC8GYX/Rich.png",
     content: `
       <div class="prose">
         <h2>Introduction to Automata Theory</h2>
@@ -69,7 +69,7 @@ export const BLOG_POSTS = [
     tags: ["Regex", "Pattern Matching", "Programming"],
     author: "Richmond Constante",
     authorRole: "Computer Science Student",
-    authorImage: "/src/image/Rich.png",
+    authorImage: "https://i.ibb.co/fWC8GYX/Rich.png",
     content: `
       <div class="prose">
         <h2>Understanding Regular Expressions</h2>
@@ -115,7 +115,7 @@ export const BLOG_POSTS = [
     tags: ["FSM", "State Machines", "Design"],
     author: "Richmond Constante",
     authorRole: "Computer Science Student",
-    authorImage: "/src/image/Rich.png",
+    authorImage: "https://i.ibb.co/fWC8GYX/Rich.png",
     content: `
       <div class="prose">
         <h2>Introduction to Finite State Machines</h2>
@@ -165,13 +165,13 @@ export default function Articles() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-indigo-600 to-blue-500 text-white py-16">
+      <div className="bg-gradient-to-r from-gray-900 to-indigo-900 dark:from-gray-800 dark:to-indigo-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold mb-4">Latest Articles & Insights</h1>
-            <p className="text-xl text-indigo-100">
+            <p className="text-xl text-gray-200">
               Explore our collection of articles on automata theory, formal languages, and computational concepts.
             </p>
           </div>
@@ -188,7 +188,10 @@ export default function Articles() {
               placeholder="Search articles..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              className="pl-10 pr-4 py-2 w-full border border-gray-300 dark:border-gray-600 rounded-lg 
+                       bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100
+                       focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 
+                       focus:border-indigo-500 dark:focus:border-indigo-400"
             />
           </div>
           <div className="flex gap-2">
@@ -198,8 +201,8 @@ export default function Articles() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-lg transition-colors ${
                   selectedCategory === category
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-100'
+                    ? 'bg-indigo-600 dark:bg-indigo-500 text-white'
+                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                 }`}
               >
                 {category}
@@ -211,14 +214,20 @@ export default function Articles() {
         {/* Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredPosts.map((post) => (
-            <article key={post.id} className="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:transform hover:scale-[1.02]">
+            <article 
+              key={post.id} 
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden 
+                       transition-transform hover:transform hover:scale-[1.02]
+                       dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]
+                       dark:border dark:border-gray-700"
+            >
               <img
                 src={post.image}
                 alt={post.title}
                 className="w-full h-48 object-cover"
               />
               <div className="p-6">
-                <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-3">
                   <span className="flex items-center">
                     <Calendar className="h-4 w-4 mr-1" />
                     {post.date}
@@ -228,13 +237,15 @@ export default function Articles() {
                     {post.readTime}
                   </span>
                 </div>
-                <h2 className="text-xl font-semibold text-gray-900 mb-2">{post.title}</h2>
-                <p className="text-gray-600 mb-4">{post.excerpt}</p>
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{post.title}</h2>
+                <p className="text-gray-600 dark:text-gray-300 mb-4">{post.excerpt}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {post.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-indigo-50 text-indigo-700"
+                      className="inline-flex items-center px-3 py-1 rounded-full text-sm 
+                               bg-indigo-50 dark:bg-indigo-900/50 
+                               text-indigo-700 dark:text-indigo-300"
                     >
                       <Tag className="h-3 w-3 mr-1" />
                       {tag}
@@ -243,7 +254,8 @@ export default function Articles() {
                 </div>
                 <Link
                   to={`/article/${post.id}`}
-                  className="inline-flex items-center text-indigo-600 hover:text-indigo-700 font-medium"
+                  className="inline-flex items-center text-indigo-600 dark:text-indigo-400 
+                           hover:text-indigo-700 dark:hover:text-indigo-300 font-medium"
                 >
                   Read more
                   <ChevronRight className="ml-1 h-4 w-4" />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -12,20 +13,23 @@ import Article from './pages/Article';
 
 export default function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/updates" element={<Updates />} />
-          <Route path="/articles" element={<Articles />} />
-          <Route path="/article/:id" element={<Article />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50 
+                        dark:from-gray-900 dark:to-gray-800 dark:bg-cyber-pattern">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/updates" element={<Updates />} />
+            <Route path="/articles" element={<Articles />} />
+            <Route path="/article/:id" element={<Article />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }

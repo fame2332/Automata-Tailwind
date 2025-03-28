@@ -1,36 +1,54 @@
-# Automata Visualizer
+# React + TypeScript + Vite
 
-This is developed by : Richmond C. Constante
-## Overview
-This web application provides visualization for Deterministic Finite Automata (DFA), Context-Free Grammars (CFG), and Pushdown Automata (PDA). It is built using Vite, React, and Tailwind CSS, with Graphviz for rendering automata diagrams.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
-- DFA Visualization: Define states, transitions, and visualize the automaton.
-- CFG Parsing: Input grammar rules and see the generated parse tree.
-- PDA Simulation: Simulate stack-based computations and step through PDA execution.
-- Graphviz Integration: Automata diagrams are generated using Graphviz.
+Currently, two official plugins are available:
 
-## Tech Stack
-- Frontend: Vite + React + Tailwind CSS
-- Graph Visualization: Graphviz
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Installation
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
-2. Install dependencies:
-   ```sh
-   npm install
-3. Start the development server:
-   ```sh
-   npm run dev
-## Usage
--Navigate to the web interface.
--Select DFA, CFG, or PDA mode.
--Input your automaton or grammar definitions.
--View the visualized output.
-## Contributing
-Feel free to submit issues to improve the project!
-## License
-This project is open-source under the MIT License.
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
+
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
+```
