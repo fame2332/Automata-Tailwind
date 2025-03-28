@@ -40,12 +40,13 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-indigo-400">Latest Updates</h3>
             <div className="space-y-3">
               <Link to="/updates" className="block">
-                <p className="text-white font-medium">Version 1.3.1 Released</p>
+                <p className="text-white font-medium">Version 1.3.7 Released</p>
+                <p className="text-sm text-gray-400">Add Dark theme, Add built using</p>
+                <p className="text-white font-medium">Version 1.3.1 </p>
                 <p className="text-sm text-gray-400">Revamped Validate Strings according to ma'am Wishes</p>
                 <p className="text-white font-medium">Version 1.2.9</p>
                 <p className="text-sm text-gray-400">Add Article Section, More Content</p>
-                <p className="text-white font-medium">Version 1.1.8</p>
-                <p className="text-sm text-gray-400">Add some changes in Team, More Content</p>
+
               </Link>
               <Link to="/updates" className="text-indigo-400 text-sm hover:text-indigo-300">
                 View all updates →
