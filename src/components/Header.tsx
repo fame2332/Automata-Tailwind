@@ -3,9 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import { CircleDot, Menu, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from '../contexts/ThemeContext';
 
 export default function Header() {
   const location = useLocation();
+  const { theme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -151,7 +153,7 @@ export default function Header() {
       className="sticky top-0 z-50 dark:text-white w-full"
       initial="top"
       animate={isScrolled ? "scrolled" : "top"}
-      variants={darkHeaderVariants}
+      variants={theme === 'dark' ? darkHeaderVariants : headerVariants}
       exit="exit"
       transition={{ duration: 0.3 }}
     >
