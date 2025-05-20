@@ -335,18 +335,17 @@ function Home() {
             {selectedRegex === 1 ? (
               // PDA_2 - Use the provided image
               <img 
-                src="/images/PDA2_page-0001.jpg" 
+                src="/images/PDA2.drawio.png" 
                 alt="PDA visualization for (1+0)(1+0)*(11+00)(11+00)*(1+0)(0+1)(11*00*)((00)*+(11)*)(11+00)(11+00)*(1+0)*"
                 className="max-w-full max-h-full object-contain"
               />
             ) : (
-              // PDA_1 - Placeholder image
-              <div className="flex flex-col items-center justify-center text-center p-8">
-                <div className="w-full h-64 bg-gray-200 dark:bg-gray-600 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-gray-500 dark:text-gray-400">Placeholder for PDA visualization</span>
-                </div>
-                <p className="text-gray-700 dark:text-gray-300">Visual representation for this PDA will be added soon.</p>
-              </div>
+              // PDA_1 - Using pda.png image
+              <img 
+                src="/images/pda.png" 
+                alt="PDA visualization for (aa+bb)*(ab+ba)(aa+bb)*"
+                className="max-w-full max-h-full object-contain"
+              />
             )}
           </div>
         ) : (

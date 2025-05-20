@@ -5,25 +5,25 @@ const TEAM_MEMBERS = [
   {
     name: 'Richmond Constante',
     role: 'Team Lead & Fullstack Dev',
-    image: 'https://i.ibb.co/fWC8GYX/Rich.png',
+    image: '/images/Rich.png',
     github: 'https://github.com/fame2332'
   },
   {
     name: 'Aaron Lazaro',
     role: 'DFA Designer',
-    image: 'https://i.ibb.co/DHhRbPXK/AaronL.jpg',
+    image: '/images/AaronL.jpg',
     github: 'https://github.com/'
   },
   {
     name: 'Helvin Tañada',
-    role: 'DFA Designer',
-    image: 'https://i.ibb.co/QFxtJRzw/Jepoy.png',
+    role: 'Hindi pa bayad sa ambag',
+    image: '/images/Jepoy.png',
     github: 'https://github.com/'
   },
   {
     name: ' Kaizz Laga',
     role: 'Sponsor',
-    image: 'https://i.ibb.co/zV3xKW62/Kaizz.png',
+    image: '/images/Kaizz.png',
     github: 'https://github.com/'
   }
 ];
