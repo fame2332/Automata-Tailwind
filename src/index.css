@@ -1,0 +1,241 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #4F46E5;
+  --color-secondary: #10B981;
+  --color-accent: #F59E0B;
+  --color-background: #F3F4F6;
+  --cursor-color: #4F46E5;
+  --cursor-outline-color: #C7D2FE;
+}
+
+:root.dark {
+  --color-primary: #818CF8;
+  --color-secondary: #34D399;
+  --color-accent: #FBBF24;
+  --color-background: #111827;
+  --cursor-color: #818CF8;
+  --cursor-outline-color: #4F46E5;
+}
+
+/* Custom cursor styles */
+html, body {
+  @apply bg-gray-50 dark:bg-gray-900;
+  cursor: none;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: exclusion;
+  transition: transform 0.2s ease;
+}
+
+.cursor-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--cursor-color);
+  border-radius: 50%;
+}
+
+.cursor-outline {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--cursor-outline-color);
+  border-radius: 50%;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+/* Add cursor-hover class for interactive elements */
+a, button, [role="button"], input, textarea, select, [tabindex]:not([tabindex="-1"]) {
+  cursor: none;
+}
+
+a:hover ~ .custom-cursor .cursor-outline,
+button:hover ~ .custom-cursor .cursor-outline,
+[role="button"]:hover ~ .custom-cursor .cursor-outline,
+input:hover ~ .custom-cursor .cursor-outline,
+textarea:hover ~ .custom-cursor .cursor-outline,
+select:hover ~ .custom-cursor .cursor-outline,
+[tabindex]:not([tabindex="-1"]):hover ~ .custom-cursor .cursor-outline {
+  transform: translate(-50%, -50%) scale(1.5);
+  background-color: var(--cursor-outline-color);
+  opacity: 0.2;
+}
+
+/* Dark mode styles */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background: linear-gradient(to bottom right, #111827, #1F2937);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-sans dark:text-white;
+}
+
+/* Interactive Elements */
+.btn {
+  @apply px-6 py-3 rounded-lg font-medium transition-all duration-200;
+}
+
+.btn-primary {
+  @apply bg-indigo-600 text-white hover:bg-indigo-700 
+         dark:bg-indigo-500 dark:hover:bg-indigo-600 
+         dark:shadow-[0_0_15px_rgba(99,102,241,0.5)]
+         focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply bg-emerald-600 text-white hover:bg-emerald-700 
+         dark:bg-emerald-500 dark:hover:bg-emerald-600
+         dark:shadow-[0_0_15px_rgba(16,185,129,0.5)]
+         focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2;
+}
+
+/* Card Styles */
+.card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 
+         transition-transform duration-200 hover:transform hover:scale-[1.02]
+         dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]
+         dark:border dark:border-gray-700;
+}
+
+/* Blog Card */
+.blog-card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden 
+         transition-all duration-200 hover:shadow-xl
+         dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]
+         dark:border dark:border-gray-700;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 relative
+         dark:shadow-[0_4px_20px_rgba(0,0,0,0.3)]
+         dark:border dark:border-gray-700;
+}
+
+/* FAQ Accordion */
+.faq-item {
+  @apply border-b border-gray-200 dark:border-gray-700 py-4;
+}
+
+.faq-question {
+  @apply flex justify-between items-center w-full text-left font-medium 
+         text-gray-900 dark:text-gray-100 
+         hover:text-indigo-600 dark:hover:text-indigo-400;
+}
+
+.faq-answer {
+  @apply mt-2 text-gray-600 dark:text-gray-300;
+}
+
+/* Article Content Styles */
+.prose {
+  @apply text-gray-800 dark:text-gray-200 leading-relaxed;
+}
+
+.prose h2 {
+  @apply text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4;
+}
+
+.prose p {
+  @apply mb-6 text-gray-700 dark:text-gray-300 leading-relaxed text-lg;
+}
+
+.prose a {
+  @apply text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 underline;
+}
+
+.prose code {
+  @apply bg-gray-100 dark:bg-gray-800 rounded px-1.5 py-0.5 text-sm font-mono text-gray-800 dark:text-gray-200;
+}
+
+.prose ul {
+  @apply list-disc list-inside text-gray-700 dark:text-gray-300 mb-6;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.5),
+                 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.8),
+                 0 0 30px rgba(139, 92, 246, 0.5);
+  }
+}
+
+.dark .neon-text {
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+/* Custom scrollbar for dark mode */
+.dark ::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-gray-600 rounded-full;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}

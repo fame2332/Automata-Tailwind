@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automata Visualizer</title>
+    
+    <!-- Preload critical libraries -->
+    <link rel="preload" href="/lib/noam.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/viz.js@2.1.2/viz.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/viz.js@2.1.2/full.render.js" as="script">
+    
+    <!-- Noam library for FSM operations -->
+    <script src="/lib/noam.min.js" onerror="console.error('Failed to load noam.min.js')"></script>
+    
+    <!-- Viz.js for graph visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/viz.js@2.1.2/viz.js" onerror="console.error('Failed to load viz.js')"></script>
+    <script src="https://cdn.jsdelivr.net/npm/viz.js@2.1.2/full.render.js" onerror="console.error('Failed to load full.render.js')"></script>
+    
+    <!-- Error handling script -->
+    <script>
+      window.addEventListener('error', function(event) {
+        console.error('Script error:', event.filename, event.lineno, event.message);
+      });
+      
+      // Check if libraries are loaded correctly
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          if (typeof noam === 'undefined') {
+            console.error('Noam library failed to load!');
+          } else {
+            console.log('Noam library loaded successfully');
+          }
+          
+          if (typeof Viz === 'undefined') {
+            console.error('Viz.js library failed to load!');
+          } else {
+            console.log('Viz.js library loaded successfully');
+          }
+        }, 1000);
+      });
+    </script>
+    
+    <!-- FSM creator functionality -->
+    <script src="/scripts/fsm_creator.js" onerror="console.error('Failed to load fsm_creator.js')"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
