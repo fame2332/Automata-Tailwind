@@ -150,18 +150,18 @@ export default function Footer() {
               >
                 <Link to="/updates" className="block group">
                   <motion.div variants={footerItemVariants} custom={0}>
-                    <p className="text-white font-medium group-hover:text-indigo-300 transition-colors">Version 1.3.7 Released</p>
-                    <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Add Dark theme, Add built using</p>
+                    <p className="text-white font-medium group-hover:text-indigo-300 transition-colors">Version 1.4.0 Released</p>
+                    <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Add FSM Page, Bug fixes</p>
                   </motion.div>
                   
                   <motion.div variants={footerItemVariants} custom={1}>
-                    <p className="text-white font-medium group-hover:text-indigo-300 transition-colors">Version 1.3.1 </p>
-                    <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Revamped Validate Strings according to ma'am Wishes</p>
+                    <p className="text-white font-medium group-hover:text-indigo-300 transition-colors">Version 1.3.7 </p>
+                    <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Add Dark theme, Add built using</p>
                   </motion.div>
                   
                   <motion.div variants={footerItemVariants} custom={2}>
-                    <p className="text-white font-medium group-hover:text-indigo-300 transition-colors">Version 1.2.9</p>
-                    <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Add Article Section, More Content</p>
+                    <p className="text-white font-medium group-hover:text-indigo-300 transition-colors">Version 1.3.1</p>
+                    <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Revamped Validate Strings according to ma'am Wishes</p>
                   </motion.div>
                 </Link>
                 

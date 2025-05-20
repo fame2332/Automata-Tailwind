@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'r
 import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ChatBot from './components/ChatBot';
 import Home from './pages/Home';
 import About from './pages/About';
 import Team from './pages/Team';
@@ -93,6 +94,7 @@ export default function App() {
             <Header />
             <AnimatedRoutes />
             <Footer />
+            <ChatBot />
           </div>
         </Router>
       )}
