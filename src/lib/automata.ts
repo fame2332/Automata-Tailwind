@@ -170,46 +170,65 @@
 
 
     export const CFG_1: CFG = {
-     start_symbol: 'S',
-     productions: [
-  'S → X Y Z W V T U P Q',
-  'X → "aa" | "bb"',
-  'Y → (a + b) Y | λ',
-  'Z → "aba" | "bab" | "bbb" | "aaa"',
-  'W → "ab" W | "ba" W | λ',
-  'V → "bb" | "aa"',
-  'T → (a + b) T | λ',
-  'U → A "b" A "b" A',
-  'A → "a" A | λ',
-  'P → "bab" | "bba" | "bbb" | "aba"',
-  'Q → (a + b) Q | λ'
-  ]
-};
+      start_symbol: 'S',
+      productions: [
+        'S → X Y Z W V T U P Q',
+        // (aa+bb)
+        'X → aa | bb',
+        // (a+b)*
+        'Y → a Y | b Y | λ',
+        // (aba+bab+bbb+aaa)
+        'Z → aba | bab | bbb | aaa',
+        // (ab+ba)*
+        'W → ab W | ba W | λ',
+        // (bb+aa)
+        'V → bb | aa',
+        // (a+b)*
+        'T → a T | b T | λ',
+        // a*ba*ba*
+        'U → A b A b A',
+        'A → a A | λ',
+        // (bab+bba+bbb+aba)
+        'P → bab | bba | bbb | aba',
+        // (a+b)*
+        'Q → a Q | b Q | λ'
+      ]
+    };
+    
 
     export const CFG_2: CFG = {
-     start_symbol: 'S',
-     productions: [
-'S → A B C D E F G H I J K',
-'A → "1" | "0"',
-'B → B "1" | B "0" | λ',
-'C → "11" | "00"',
-'D → D "11" | D "00" | λ',
-'E → "1" | "0"',
-'F → "0" | "1"',
-'G → L M',
-'L → "11" N "00" | λ',
-'N → N "1" | λ',
-'M → M "00" | λ',
-'H → O | P',
-'O → O "00" | λ',
-'P → P "11" | λ',
-'I → "11" | "00"',
-'J → J "11" | J "00" | λ',
-'K → K "1" | K "0" | λ'
-
-  ]
-};
-
+      start_symbol: 'S',
+      productions: [
+        'S → A B C D E F G H I J K',
+        // (1+0)
+        'A → 1 | 0',
+        // (1+0)*
+        'B → 1 B | 0 B | λ',
+        // (11+00)
+        'C → 11 | 00',
+        // (11+00)*
+        'D → 11 D | 00 D | λ',
+        // (1+0)
+        'E → 1 | 0',
+        // (0+1)
+        'F → 0 | 1',
+        // (11*00*)
+        'G → 1 L 0 M',
+        'L → 1 L | λ',
+        'M → 0 M | λ',
+        // ((00)*+(11)*)
+        'H → N | O',
+        'N → 00 N | λ',
+        'O → 11 O | λ',
+        // (11+00)
+        'I → 11 | 00',
+        // (11+00)*
+        'J → 11 J | 00 J | λ',
+        // (1+0)*
+        'K → 1 K | 0 K | λ'
+      ]
+    };
+    
     export const PDA_1: PDA = {
       states: ["Start", "Read1", "Read2", "Read3", "Read4", "Read5", "Read6", "Read7",
                "Read8", "Read9", "Read10", "Read11", "Read12", "Read13", "Accept1", "Accept2"],
