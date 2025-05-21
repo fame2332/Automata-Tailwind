@@ -16,13 +16,13 @@ const TEAM_MEMBERS = [
   },
   {
     name: 'Helvin Tañada',
-    role: 'Hindi pa bayad',
+    role: 'DFA Designer',
     image: '/images/Jepoy.png',
     github: 'https://github.com/'
   },
   {
     name: ' Kaizz Laga',
-    role: 'Bayad na',
+    role: 'DFA Designer',
     image: '/images/Kaizz.png',
     github: 'https://github.com/'
   }
