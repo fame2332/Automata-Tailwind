@@ -99,17 +99,17 @@ export default function Contact() {
     { 
       icon: <Mail className="text-indigo-500" size={24} />,
       title: "Email Us",
-      content: "automata@visualizer.com"
+      content: "rc202300000@gmail.com"
     },
     { 
       icon: <Phone className="text-indigo-500" size={24} />,
       title: "Call Us",
-      content: "+1 (555) 123-4567"
+      content: "+639150365602"
     },
     { 
       icon: <MapPin className="text-indigo-500" size={24} />,
       title: "Location",
-      content: "Digital Campus, Algorithm Avenue"
+      content: "De La Salle University - Dasmariñas"
     }
   ];
 
