@@ -335,7 +335,7 @@ function Home() {
             {selectedRegex === 1 ? (
               // PDA_2 - Use the provided image
               <img 
-                src="/images/PDA2.drawio.png" 
+                src="/images/PDA2_page-0001.png" 
                 alt="PDA visualization for (1+0)(1+0)*(11+00)(11+00)*(1+0)(0+1)(11*00*)((00)*+(11)*)(11+00)(11+00)*(1+0)*"
                 className="max-w-full max-h-full object-contain"
               />
